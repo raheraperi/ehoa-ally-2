@@ -26877,16 +26877,30 @@ var _About = __webpack_require__(113);
 
 var _About2 = _interopRequireDefault(_About);
 
+var _AllyOverview = __webpack_require__(117);
+
+var _AllyOverview2 = _interopRequireDefault(_AllyOverview);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
   return _react2.default.createElement(
     'div',
-    { className: 'columns' },
+    { className: 'home-container' },
     _react2.default.createElement(
       'div',
-      { className: 'about column' },
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _About2.default })
+      { className: 'columns' },
+      _react2.default.createElement(
+        'div',
+        { className: 'about column' },
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _About2.default })
+      )
+    ),
+    _react2.default.createElement('hr', null),
+    _react2.default.createElement(
+      'div',
+      { className: 'ally column' },
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _AllyOverview2.default })
     )
   );
 };
@@ -26917,7 +26931,7 @@ var About = function About() {
     _react2.default.createElement(
       'h1',
       null,
-      'Kia ora.'
+      'Kia ora, e hoa!'
     ),
     _react2.default.createElement(
       'p',
@@ -27039,6 +27053,73 @@ function mapStateToProps(state) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(WaitIndicator);
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AllyOverview = function AllyOverview() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'overview' },
+    _react2.default.createElement(
+      'h2',
+      null,
+      'What is an ally?'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      'Simply put, an ally is someone who is supportive of and sympathetic towards a different group of people.'
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'columns' },
+      _react2.default.createElement(
+        'div',
+        { className: 'overview column' },
+        _react2.default.createElement(
+          'h3',
+          null,
+          'OBSERVE'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'overview column' },
+        _react2.default.createElement(
+          'h3',
+          null,
+          'SPEAK UP'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'overview column' },
+        _react2.default.createElement(
+          'h3',
+          null,
+          'LISTEN'
+        )
+      )
+    )
+  );
+};
+
+exports.default = AllyOverview;
 
 /***/ })
 /******/ ]);
