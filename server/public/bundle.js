@@ -86,6 +86,45 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/actions/index.js":
+/*!*********************************!*\
+  !*** ./client/actions/index.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var SHOW_ERROR = exports.SHOW_ERROR = 'SHOW_ERROR';
+var CLEAR_ERROR = exports.CLEAR_ERROR = 'CLEAR_ERROR';
+var SHOW_SUCCESS = exports.SHOW_SUCCESS = 'SHOW_SUCCESS';
+
+var showError = exports.showError = function showError(errorMessage) {
+  return {
+    type: SHOW_ERROR,
+    errorMessage: errorMessage
+  };
+};
+
+var clearError = exports.clearError = function clearError() {
+  return {
+    type: CLEAR_ERROR
+  };
+};
+
+var showSuccess = exports.showSuccess = function showSuccess(message) {
+  return {
+    type: SHOW_SUCCESS,
+    message: message
+  };
+};
+
+/***/ }),
+
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -243,7 +282,7 @@ var _reduxThunk = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-t
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './reducers'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _reducers = __webpack_require__(/*! ./reducers */ "./client/reducers/index.js");
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -265,6 +304,73 @@ document.addEventListener('DOMContentLoaded', function () {
     { store: store },
     _react2.default.createElement(_App2.default, null)
   ), document.getElementById('app'));
+});
+
+/***/ }),
+
+/***/ "./client/reducers/errorMessage.js":
+/*!*****************************************!*\
+  !*** ./client/reducers/errorMessage.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
+
+function errorMessage() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _actions.SHOW_ERROR:
+      return action.errorMessage;
+
+    case _actions.CLEAR_ERROR:
+      return '';
+
+    case _actions.SHOW_SUCCESS:
+      return action.message;
+
+    default:
+      return state;
+  }
+}
+
+exports.default = errorMessage;
+
+/***/ }),
+
+/***/ "./client/reducers/index.js":
+/*!**********************************!*\
+  !*** ./client/reducers/index.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+
+var _errorMessage = __webpack_require__(/*! ./errorMessage */ "./client/reducers/errorMessage.js");
+
+var _errorMessage2 = _interopRequireDefault(_errorMessage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _redux.combineReducers)({
+  errorMessage: _errorMessage2.default
 });
 
 /***/ }),
