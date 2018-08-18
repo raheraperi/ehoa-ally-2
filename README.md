@@ -1,5 +1,4 @@
-# E Hoa - Ally Web App
+# E Hoa - Ally 
 
-- New and improved version 
-- Site mapping 
-- Bootstrap
+> A safe space for allies and marginalised communities to connect and support each other.
+
