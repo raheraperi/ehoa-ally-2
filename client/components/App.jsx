@@ -1,9 +1,15 @@
 import React from 'react'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 
+import Nav from './Nav'
 class App extends React.Component {
   render () {
     return (
-      <div>Testing</div>
+      <Router>
+        <div className='container'>
+          <Nav />
+        </div>
+      </Router>
     )
   }
 }
